@@ -1,0 +1,127 @@
+title,start_date,end_date,milestone,labels,assignees,content
+JSONLD rename homodeniguty,2025-05-22,2025-07-03,"Framework","Framework,CVsTT","LT","# Framework Task Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+JSONLD homogeneity renaming task"
+Match CV names with DD names,2025-05-22,2025-11-06,"Framework","Framework,CVsTT","LT,DE","# Framework Task Review
+
+## Status
+- [x] Ongoing
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Match CV names with DD names (decided above) - Ongoing task"
+README documentation,2025-05-22,2025-07-03,"Framework","Framework,CVsTT,Documentation","DH,LT,DE,MM","# Framework Task Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+README documentation for each key / link pages - automated"
+Get Scientific members to populate field descriptions,2025-06-19,2025-11-06,"Framework","Framework,CVsTT,Documentation","OTHERS","# Framework Task Review
+
+## Status
+- [ ] Need Assistance
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Get Scientific members to populate field descriptions"
+Symbiosis of esgvoc and cmip-ld,2025-05-22,2025-06-19,"Framework","Framework,CVsTT,Integration","DE,LT","# Framework Task Review
+
+## Status
+- [x] Ongoing
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Symbiosis of esgvoc and cmip-ld integration"
+Form scripts for CMIP7,2025-05-22,2025-09-04,"Framework","Framework,CVsTT,Automation","DE","# Framework Task Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Form scripts for CMIP7 + automations for each script"
+Dynamic hosted server space with GH SSO,2025-05-22,2025-06-12,"Framework","Framework,CVsTT,Infrastructure","DE","# Framework Task Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Dynamic hosted server space with GitHub SSO integration"
+Ne4J descriptor,2025-06-05,2025-10-02,"Framework","Framework,CVsTT,Database","DE","# Framework Task Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Ne4J descriptor / (also a REF Provenance framework possibility)"
+Elastic Search interface,2025-05-22,2025-09-18,"Framework","Framework,CVsTT,Search","DE","# Framework Task Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Elastic Search interface + Summary tool"
+Statistics Dashboard,2025-05-22,2025-09-18,"Framework","Framework,CVsTT,Analytics","DE,PD","# Framework Task Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Statistics Dashboard development"
+Lessons on how to interact with CVs,2025-09-11,2025-11-20,"Framework","Framework,CVsTT,Documentation,Training","DE","# Framework Task Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Lessons on how to interact with the CVs"
+Lessons on how to create new data descriptor,2025-05-29,2025-07-03,"Framework","Framework,CVsTT,Documentation,Training","DE","# Framework Task Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Lessons on how to create a new data descriptor"
+Instructions on how to fill in data,2025-07-03,2025-08-28,"Framework","Framework,CVsTT,Documentation","DE","# Framework Task Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Instructions on how to fill in the data"
+Writing of tests and CI,2025-10-02,2025-10-23,"Framework","Framework,CVsTT,Testing,CI","LT,DE,DH","# Framework Task Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Writing of tests, CI and new submission processes"

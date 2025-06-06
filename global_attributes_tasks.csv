@@ -1,0 +1,361 @@
+title,start_date,end_date,milestone,labels,assignees,content
+Global_attributes,2025-05-22,2025-06-05,"DRS, GlobalAttribute","DRS,GlobalAttribute,CVsTT,DataModeler","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed  
+- [ ] Awaiting feedback
+
+## Details
+DataModeler task - 95% complete"
+variableRootDD,2025-05-29,2025-06-12,"DRS, GlobalAttribute","DRS,GlobalAttribute,CVsTT,DR","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+DR responsibility"
+horizontalLabelDD,2025-05-29,2025-06-12,"DRS, GlobalAttribute","DRS,GlobalAttribute,CVsTT,KarlDocument","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Source: Karl's document"
+verticalDD,2025-05-29,2025-06-12,"DRS, GlobalAttribute","DRS,GlobalAttribute,CVsTT,KarlDocument","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Source: Karl's document"
+temporalLabelDD,2025-05-29,2025-06-12,"DRS, GlobalAttribute","DRS,GlobalAttribute,CVsTT,KarlDocument","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Source: Karl's document"
+area_labelDD,2025-05-29,2025-06-12,"DRS, GlobalAttribute","DRS,GlobalAttribute,CVsTT,KarlDocument","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Source: Karl's document"
+brandingSuffixDD,2025-05-29,2025-06-12,"DRS, GlobalAttribute","DRS,GlobalAttribute,CVsTT,KarlDocument","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Source: Karl's document"
+reportingIntervalDD,2025-06-05,2025-06-19,"DRS, GlobalAttribute","DRS,GlobalAttribute,CVsTT,OldCV","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Source: Old CV (CMIP6)"
+dataRegionDD,2025-06-05,2025-06-19,"DRS, GlobalAttribute","DRS,GlobalAttribute,CVsTT,OldCV","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Source: Old CV (CMIP6) + GitHub issue #194"
+gridLabelDD,2025-06-05,2025-06-19,"DRS, GlobalAttribute","DRS,GlobalAttribute,CVsTT,OldCV","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Source: Old CV"
+sourceDD,2025-06-12,2025-06-26,"EMD, GlobalAttribute","EMD,GlobalAttribute,CVsTT","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+EMD responsibility"
+experimentDD,2025-06-19,2025-07-03,"DRS, GlobalAttribute","DRS,GlobalAttribute,CVsTT,DR","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+DR responsibility"
+variantLabelDD,2025-06-05,2025-06-19,"DRS, GlobalAttribute","DRS,GlobalAttribute,CVsTT,OldCV","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Source: Old CV + adding sub_experiment"
+time-range,2025-05-29,2025-06-12,"DRS, GlobalAttribute","DRS,GlobalAttribute,CVsTT,OldCV","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Source: Old CV"
+drsSpecsDD,2025-06-25,2025-07-10,"DRS, GlobalAttribute","DRS,GlobalAttribute,CVsTT,New","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+New specification"
+activityDD,2025-06-05,2025-06-19,"DRS, GlobalAttribute","DRS,GlobalAttribute,CVsTT,DR","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+DR responsibility"
+datasetVersionDD,2025-05-29,2025-06-12,"DRS, GlobalAttribute","DRS,GlobalAttribute,CVsTT","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Not yet determined if needed"
+realizationDD,2025-06-05,2025-06-19,"DRS, GlobalAttribute","DRS,GlobalAttribute,CVsTT,OldCV","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Source: Old CV"
+initializationDD,2025-06-05,2025-06-19,"DRS, GlobalAttribute","DRS,GlobalAttribute,CVsTT,OldCV","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Source: Old CV (need sub_experiment addition)"
+physicsDD,2025-06-05,2025-06-19,"DRS, GlobalAttribute","DRS,GlobalAttribute,CVsTT,OldCV","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Source: Old CV"
+forcingDD,2025-06-05,2025-06-19,"DRS, GlobalAttribute","DRS,GlobalAttribute,CVsTT,OldCV","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Source: Old CV"
+institutionDD,2025-07-03,2025-07-17,"Info, GlobalAttribute","Info,GlobalAttribute,CVsTT,OldCV,IssueRegister","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Source: Old CV + Issue Register - DRS Info+Contact"
+filename,2025-05-22,2025-05-29,"DRS, GlobalAttribute","DRS,GlobalAttribute,CVsTT,GoogleSpreadsheet","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Source: Google Spreadsheet"
+nominalResolutionDD,2025-07-03,2025-07-17,"CMOR, GlobalAttribute","CMOR,GlobalAttribute,CVsTT,OldCV,EMD","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Source: Old or EMD or Mix"
+realmDD,2025-08-03,2025-08-17,"CMOR, GlobalAttribute","CMOR,GlobalAttribute,CVsTT,OldCV","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Source: Old CV"
+productTypeDD,2025-08-03,2025-08-17,"Other, GlobalAttribute","Other,GlobalAttribute,CVsTT,CMIP,Input4Mips,Obs4Mips","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Source: CMIP + Input4Mips + Obs4Mips"
+sourceTypeDD,2025-08-03,2025-08-17,"Other, GlobalAttribute","Other,GlobalAttribute,CVsTT,CMIP,Input4Mips,Obs4Mips","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Source: CMIP + Input4Mips + Obs4Mips"
+mip_era,2025-08-03,2025-08-17,"Other, GlobalAttribute","Other,GlobalAttribute,CVsTT,OldCV","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Backward compatibility - Old CV but obsolete"
+licenseDD,2025-06-05,2025-06-19,"Other, GlobalAttribute","Other,GlobalAttribute,CVsTT,OldCV","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Source: Old CV + Some issue"
+variableTableDD,2025-07-03,2025-07-17,"Other, GlobalAttribute","Other,GlobalAttribute,CVsTT","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Source: To be determined"
+gridTypeDD,2025-08-03,2025-08-17,"EMD, GlobalAttribute","EMD,GlobalAttribute,CVsTT","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+EMD responsibility - Info + analysis"
+grid_temporal_refinement,2025-07-17,2025-08-07,"EMD, GlobalAttribute","EMD,GlobalAttribute,CVsTT","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+EMD responsibility - Info + analysis"
+grid_truncation_methodDD,2025-07-17,2025-08-07,"EMD, GlobalAttribute","EMD,GlobalAttribute,CVsTT","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+EMD responsibility - Info + analysis"
+archiveDD,2025-07-03,2025-07-17,"Info, GlobalAttribute","Info,GlobalAttribute,CVsTT,WCRP","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Only one for now: WCRP"
+dataConventionsDD,2025-07-10,2025-07-21,"Info, GlobalAttribute","Info,GlobalAttribute,CVsTT","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Info + analysis - Source TBD"
+dateCreatedDD,2025-07-10,2025-07-21,"Other, GlobalAttribute","Other,GlobalAttribute,CVsTT,OldCV","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Versioning - Source: Old"
+uniqueFileIdDD,2025-08-03,2025-08-17,"Other, GlobalAttribute","Other,GlobalAttribute,CVsTT,TrackingId","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Unique ID linked to tracking ID"
+dataSpecsVersionDD,2025-07-10,2025-07-21,"Info, GlobalAttribute","Info,GlobalAttribute,CVsTT,OldDocuments","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Info + analysis - old documents"
+datasetVariantDD,2025-07-10,2025-07-21,"Other, GlobalAttribute","Other,GlobalAttribute,CVsTT","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Source: To be determined"
+hostCollectionDD,2025-07-10,2025-07-21,"Info, GlobalAttribute","Info,GlobalAttribute,CVsTT,Activity,MipEra","CVsTT","# Global Attribute Review
+
+## Status
+- [ ] Started
+- [ ] Discussed
+- [ ] Awaiting feedback
+
+## Details
+Activity + mip_era number"
