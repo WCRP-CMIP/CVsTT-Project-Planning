@@ -34,6 +34,13 @@ def load_issue_links():
 
 def create_chooser_config(entries):
     """Create the issue template chooser config."""
+    # Check if config.yml already exists
+    config_file = Path(__file__).parent.parent / ".github" / "ISSUE_TEMPLATE" / "config.yml"
+    if config_file.exists():
+        print("⚠️  config.yml already exists - not overwriting")
+        print("   Edit the existing file manually if you want to add template links")
+        return None
+        
     config_content = """blank_issues_enabled: false
 contact_links:
 """

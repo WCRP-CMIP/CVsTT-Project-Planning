@@ -52,15 +52,8 @@ body:
 -   id: minimum_requirements
     type: textarea
     attributes:
-        label: Minimum Viable Product (MVP)
-        description: |
-            Define the minimum deliverables required for this task to be considered complete.
-            
-            Specify:
-            - Core functionality that must be implemented
-            - Essential outputs, formats, and standards
-            - Quality criteria and acceptance thresholds
-            - Critical dependencies that must be satisfied
+        label: Minimum Deliverables (Essential)
+        description: ""
         placeholder: |
             **Must have:**
             - Core feature working
@@ -77,7 +70,7 @@ body:
 -   id: ideal_requirements
     type: textarea
     attributes:
-        label: Ideal Implementation
+        label: Extended Deliverables (Optional)
         description: |
             Define the ideal scope and deliverables if time and resources permit.
             
@@ -100,19 +93,18 @@ body:
             Describe the support framework and quality assurance approach.
 
 -   id: assistance_plan
-    type: textarea
+    type: checkboxes
     attributes:
         label: Support Plan
         description: |
-            Outline the support and quality assurance approach for this task.
-            
-            Include review processes, resources, and expertise available.
-        placeholder: |
-            **Available support:**
-            - Code review and feedback
-            - Technical guidance
-            - Access to resources
-        render: markdown
+            Participation in meetings, carrying out work relevant to the task at hand.
+        options:
+            - label: "I can work on this myself"
+            - label: "I need help implementing a solution"
+            - label: "I'm just reporting this task"
+            - label: "I will participate in relevant meetings"
+            - label: "I will provide technical guidance"
+            - label: "I will conduct code review"
     validations:
         required: true
 
@@ -152,8 +144,7 @@ body:
     type: textarea
     attributes:
         label: Development Timeline
-        description: |
-            Provide realistic time estimates with clear reasoning and development phases.
+        description: ""
         placeholder: |
             **Estimate:**
             - Start: when ready
