@@ -1,0 +1,204 @@
+name: 'CVsTT Discussion: esgvoc'
+description: 'Start a esgvoc discussion'
+title: 'esgvoc Discussion: <topic>'
+projects: ["WCRP-CMIP/4"]  # CVsTT project board
+labels:
+    - CVsTT
+    - discussion
+    - esgvoc
+body:
+
+-   type: markdown
+    attributes:
+        value: |
+            ## esgvoc Discussion
+            
+            Use this template to start a discussion, gather community input, or propose ideas for esgvoc work.
+
+-   type: dropdown
+    id: urgency
+    attributes:
+        label: Timeline/Urgency
+        description: How quickly do you need input or resolution?
+        options:
+            - "Critical - Need resolution within days"
+            - "High - Need resolution within weeks"
+            - "Medium - Need resolution within 2-3 months"
+            - "Low - No specific timeline"
+        default: 2
+    validations:
+        required: true
+
+-   type: markdown
+    attributes:
+        value: |
+            ## Background & Context
+            
+            Provide sufficient context for others to understand and contribute to the discussion.
+
+-   id: background
+    type: textarea
+    attributes:
+        label: Background/Context
+        description: |
+            Provide background information to help others understand the discussion topic.
+            
+            Include:
+            - Why this discussion is needed
+            - Current situation or problem
+            - Relevant history or previous discussions
+            - Relationship to esgvoc work
+        placeholder: |
+            **Current situation:**
+            What's happening now with esgvoc
+            
+            **Why discuss:**
+            What prompted this discussion
+        render: markdown
+    validations:
+        required: true
+
+-   type: markdown
+    attributes:
+        value: |
+            ## Discussion Focus
+            
+            Define the key questions and areas for community input.
+
+-   id: main_points
+    type: textarea
+    attributes:
+        label: Main Discussion Points
+        description: |
+            What are the key points or questions you'd like the community to address?
+            
+            Use bullet points or numbered lists for clarity.
+        placeholder: |
+            1. Should we approach this as X or Y?
+            2. What are the trade-offs?
+            3. How does this affect our direction?
+            4. What do we need to consider?
+        render: markdown
+    validations:
+        required: true
+
+-   id: proposed_options
+    type: textarea
+    attributes:
+        label: Options/Proposals (if applicable)
+        description: |
+            If you have specific options or proposals to discuss, list them here.
+        placeholder: |
+            **Option A:** Approach description
+            - Pros: advantages
+            - Cons: disadvantages
+            
+            **Option B:** Alternative approach
+            - Pros: advantages
+            - Cons: disadvantages
+        render: markdown
+    validations:
+        required: false
+
+-   type: markdown
+    attributes:
+        value: |
+            ## Desired Outcomes & Resources
+
+-   id: desired_outcome
+    type: textarea
+    attributes:
+        label: Desired Outcome
+        description: |
+            What do you hope to achieve from this discussion?
+            
+            Be specific about the type of input or decisions needed.
+        placeholder: |
+            **Goal:**
+            - Reach consensus on approach
+            - Identify action items
+            - Clarify requirements
+        render: markdown
+    validations:
+        required: true
+
+-   id: related_resources
+    type: textarea
+    attributes:
+        label: Related Resources
+        description: |
+            Link to any relevant documents, previous discussions, or external resources.
+        placeholder: |
+            - Related issue: #123
+            - Previous discussion: link
+            - Documentation: link
+        render: markdown
+    validations:
+        required: false
+
+-   type: markdown
+    attributes:
+        value: |
+            ## Impact & Stakeholders (Optional)
+            
+            Additional context about stakeholders and consequences.
+
+-   id: stakeholders
+    type: textarea
+    attributes:
+        label: Relevant Stakeholders
+        description: |
+            Who should be involved in this discussion? (Optional)
+        placeholder: |
+            **Key people:**
+            - @username (role)
+            - Team or group
+        render: markdown
+    validations:
+        required: false
+
+-   id: impact_consequences
+    type: textarea
+    attributes:
+        label: Impact & Consequences
+        description: |
+            What's affected by this discussion and what happens if no decision is made? (Optional)
+        placeholder: |
+            **What's affected:**
+            - esgvoc timeline
+            - Other work or decisions
+            
+            **If no decision:**
+            - Default action
+            - Potential issues
+        render: markdown
+    validations:
+        required: false
+
+-   type: markdown
+    attributes:
+        value: |
+            ## How to Participate
+            
+            👋 **Everyone is welcome to contribute to this discussion!**
+            
+            Please:
+            - Keep comments constructive and focused on esgvoc goals
+            - Consider all perspectives and provide reasoning for recommendations
+            - Include examples or evidence where helpful
+            - Be respectful of different viewpoints and approaches
+            - Tag relevant stakeholders when appropriate
+
+-   id: participation_type
+    type: checkboxes
+    attributes:
+        label: Participation Needed
+        description: What kind of participation are you looking for?
+        options:
+            - label: "General comments and feedback"
+            - label: "Technical expertise and review"
+            - label: "Use case examples and requirements"
+            - label: "Implementation recommendations"
+            - label: "Resource and timeline input"
+    validations:
+        required: false

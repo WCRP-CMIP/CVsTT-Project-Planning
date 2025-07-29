@@ -1,0 +1,197 @@
+name: 'CVsTT Task: '
+description: 'Create a  task'
+title: ': <brief description>'
+projects: ["WCRP-CMIP/4"]  # CVsTT project board
+labels:
+    - CVsTT
+    - task
+    - ESGF
+    - citation
+    - forcings
+    - other
+body:
+
+-   type: markdown
+    attributes:
+        value: |
+            ##  Task Specification
+            
+            Define a task for  development work.
+
+-   id: description
+    type: textarea
+    attributes:
+        label: Task Description
+        description: |
+            Provide a detailed description of the task, including its primary aims, scope, and technical requirements.
+        placeholder: 'Describe what needs to be built, implemented, or fixed'
+    validations:
+        required: true
+
+-   id: priority
+    type: dropdown
+    attributes:
+        label: Priority Level
+        description: How urgent is this task?
+        options:
+            - "Critical - Blocking other work"
+            - "High - Important for milestone"
+            - "Medium - Standard priority"
+            - "Low - Nice to have"
+        default: 2
+    validations:
+        required: true
+
+-   type: markdown
+    attributes:
+        value: |
+            ## Task Specification
+            
+            Define the deliverables and acceptance criteria for this development task.
+
+-   id: minimum_requirements
+    type: textarea
+    attributes:
+        label: Minimum Deliverables (Essential)
+        placeholder: |
+            **Must have:**
+            - Core feature working
+            - Basic tests passing
+            - Minimal documentation
+            
+            **Acceptance:**
+            - Code works as specified
+            - Passes review
+        render: markdown
+    validations:
+        required: true
+
+-   id: ideal_requirements
+    type: textarea
+    attributes:
+        label: Extended Deliverables (Optional)
+        description: |
+            Define the ideal scope and deliverables if time and resources permit.
+            
+            Include enhancements beyond the MVP that would add significant value.
+        placeholder: |
+            **Nice to have:**
+            - Advanced features
+            - Performance optimizations
+            - Comprehensive tests
+            - Full documentation
+        render: markdown
+    validations:
+        required: false
+
+-   type: markdown
+    attributes:
+        value: |
+            ## Support & Quality Assurance
+            
+            Describe the support framework and quality assurance approach.
+
+-   id: assistance_plan
+    type: checkboxes
+    attributes:
+        label: Support Plan
+        description: |
+            Participation in meetings, carrying out work relevant to the task at hand.
+        options:
+            - label: "I can work on this myself"
+            - label: "I need help implementing a solution"
+            - label: "I'm just reporting this task"
+            - label: "I will participate in relevant meetings"
+            - label: "I will provide technical guidance"
+            - label: "I will conduct code review"
+    validations:
+        required: true
+
+-   type: markdown
+    attributes:
+        value: |
+            ## Context & Dependencies
+            
+            Provide project context and identify task relationships.
+
+-   id: context_dependencies
+    type: textarea
+    attributes:
+        label: Project Context and Dependencies
+        description: |
+            Explain the strategic importance and constraints for this task within the  project.
+        placeholder: |
+            **Why needed:**
+            - Required for milestone X
+            - Blocks/enables other work
+            
+            **Dependencies:**
+            - Needs: task A, data B
+            - Blocks: task C, task D
+        render: markdown
+    validations:
+        required: true
+
+-   type: markdown
+    attributes:
+        value: |
+            ## Timeline & Planning
+            
+            Provide realistic time estimates and key milestones.
+
+-   id: timeline
+    type: textarea
+    attributes:
+        label: Timeline
+        placeholder: |
+            **Estimate:**
+            - Start: when ready
+            - MVP: X weeks
+            - Full: Y weeks
+            
+            **Risks:**
+            - Complex integration
+            - External dependencies
+        render: markdown
+    validations:
+        required: true
+
+-   id: resources
+    type: textarea
+    attributes:
+        label: Technical Resources & References
+        description: |
+            Provide links to relevant technical documentation, tools, and references.
+        placeholder: |
+            **Resources:**
+            - API docs: link
+            - Code repo: link
+            - Examples: link
+        render: markdown
+    validations:
+        required: false
+
+-   type: markdown
+    attributes:
+        value: |
+            ## Risk Assessment
+            
+            Analyze potential impacts and mitigation strategies.
+
+-   id: delay_consequences
+    type: textarea
+    attributes:
+        label: Consequences of Delay
+        description: |
+            Analyze the impact if this task is delayed or not completed, and identify mitigation strategies.
+        placeholder: |
+            **If delayed:**
+            - Blocks milestone completion
+            - Affects other tasks
+            
+            **Mitigation:**
+            - Reduce scope to MVP
+            - Get help from team
+        render: markdown
+    validations:
+        required: true

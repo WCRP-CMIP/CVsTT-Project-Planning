@@ -1,0 +1,9 @@
+EMD,EMD
+variable-registry,VariableRegistry
+obs-ref,Obs4MIP-REF
+framework-infrastructure,Framework
+esgvoc,esgvoc
+ESGF,
+citation,
+forcings,
+other,
