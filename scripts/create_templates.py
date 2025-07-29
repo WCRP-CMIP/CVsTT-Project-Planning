@@ -263,7 +263,7 @@ body:
         render: markdown
     validations:
         required: true
-"""))
+""")
 
 def create_discussion_template():
     """Create Jinja2 template for discussion issues in WCRP-universe style."""
