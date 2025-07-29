@@ -1,0 +1,59 @@
+blank_issues_enabled: true
+contact_links:
+- name: "\U0001F4DA Project Board"
+  url: https://github.com/orgs/WCRP-CMIP/projects/4/views/3
+  about: Where you can find information about the different issues and tasks (see
+    categories in the tabs)
+- name: "\U0001F310 CMIP Website"
+  url: https://wcrp-cmip.org/
+  about: Visit the main CMIP project website
+- name: "\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\
+    \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500"
+  url: '#'
+  about: Issue Templates
+- name: "\U0001F4CB Tasks"
+  url: '#'
+  about: Create development tasks
+- name: 'CVsTT Task: '
+  url: /issues/new?template=task_.yml
+  about: Create a  task
+- name: 'CVsTT Task: EMD'
+  url: /issues/new?template=task_emd.yml
+  about: Create a EMD task
+- name: 'CVsTT Task: Framework'
+  url: /issues/new?template=task_framework.yml
+  about: Create a Framework task
+- name: 'CVsTT Task: Obs4MIP-REF'
+  url: /issues/new?template=task_obs4mip-ref.yml
+  about: Create a Obs4MIP-REF task
+- name: 'CVsTT Task: VariableRegistry'
+  url: /issues/new?template=task_variableregistry.yml
+  about: Create a VariableRegistry task
+- name: 'CVsTT Task: esgvoc'
+  url: /issues/new?template=task_esgvoc.yml
+  about: Create a esgvoc task
+- name: "\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\
+    \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500"
+  url: '#'
+  about: Discussions
+- name: "\U0001F4AD Discussions"
+  url: '#'
+  about: Start project discussions
+- name: 'CVsTT Discussion: '
+  url: /issues/new?template=discussion_.yml
+  about: Start a  discussion
+- name: 'CVsTT Discussion: EMD'
+  url: /issues/new?template=discussion_emd.yml
+  about: Start a EMD discussion
+- name: 'CVsTT Discussion: Framework'
+  url: /issues/new?template=discussion_framework.yml
+  about: Start a Framework discussion
+- name: 'CVsTT Discussion: Obs4MIP-REF'
+  url: /issues/new?template=discussion_obs4mip-ref.yml
+  about: Start a Obs4MIP-REF discussion
+- name: 'CVsTT Discussion: VariableRegistry'
+  url: /issues/new?template=discussion_variableregistry.yml
+  about: Start a VariableRegistry discussion
+- name: 'CVsTT Discussion: esgvoc'
+  url: /issues/new?template=discussion_esgvoc.yml
+  about: Start a esgvoc discussion

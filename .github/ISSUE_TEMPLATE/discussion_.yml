@@ -9,6 +9,7 @@ labels:
     - citation
     - forcings
     - other
+    - feoc
 body:
 
 -   type: markdown
