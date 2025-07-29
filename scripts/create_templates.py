@@ -161,7 +161,10 @@ body:
 - type: checkboxes
   attributes:
     label: Related Categories
-    options:{{ all_labels | tojson }}
+    options:
+{% for label_item in all_labels %}
+      - label: "{{ label_item.label }}"
+{% endfor %}
 
 - type: input
   attributes:
@@ -255,7 +258,10 @@ body:
 - type: checkboxes
   attributes:
     label: Related Categories
-    options:{{ all_labels | tojson }}
+    options:
+{% for label_item in all_labels %}
+      - label: "{{ label_item.label }}"
+{% endfor %}
 
 - type: textarea
   attributes:

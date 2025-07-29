@@ -79,7 +79,26 @@ body:
 - type: checkboxes
   attributes:
     label: Related Categories
-    options:[{"label": "EMD"}, {"label": "ESGF"}, {"label": "citation"}, {"label": "esgvoc"}, {"label": "forcings"}, {"label": "framework-infrastructure"}, {"label": "obs-ref"}, {"label": "other"}, {"label": "variable-registry"}]
+    options:
+
+      - label: "EMD"
+
+      - label: "ESGF"
+
+      - label: "citation"
+
+      - label: "esgvoc"
+
+      - label: "forcings"
+
+      - label: "framework-infrastructure"
+
+      - label: "obs-ref"
+
+      - label: "other"
+
+      - label: "variable-registry"
+
 
 - type: textarea
   attributes:
