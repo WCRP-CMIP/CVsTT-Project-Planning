@@ -16,6 +16,7 @@ EMD,EMD, GlobalAttribute
 - Each line has a label and milestone separated by comma
 - Multiple labels can map to the same milestone
 - Single entries (no comma) use the same name for both label and milestone
+- **Milestones are automatically assigned** - no dropdown selection needed
 
 ## Usage
 

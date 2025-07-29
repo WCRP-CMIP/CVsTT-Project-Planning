@@ -1,6 +1,7 @@
 name: 'CVsTT Discussion: Obs4MIP-REF'
 description: 'Start a Obs4MIP-REF discussion'
 title: 'Obs4MIP-REF Discussion: <topic>'
+projects: ["WCRP-CMIP/4"]  # CVsTT project board
 labels:
     - CVsTT
     - discussion
@@ -24,8 +25,8 @@ body:
     validations:
         required: true
 
--   type: dropdown
-    id: urgency
+-   id: urgency
+    type: dropdown
     attributes:
         label: Timeline/Urgency
         description: How quickly do you need input or resolution?

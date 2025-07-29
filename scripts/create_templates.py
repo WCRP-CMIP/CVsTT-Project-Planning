@@ -56,15 +56,12 @@ def get_unique_milestones(entries):
     
     return milestone_labels
 
-def get_all_labels(entries):
-    """Get all unique labels for checkbox options."""
-    return sorted(list(set(entry['label'] for entry in entries)))
-
 def create_task_template():
     """Create Jinja2 template for task issues in WCRP-universe style."""
     return Template("""name: 'CVsTT Task: {{ milestone }}'
 description: 'Create a {{ milestone }} task'
 title: '{{ milestone }}: <brief description>'
+projects: ["WCRP-CMIP/4"]  # CVsTT project board
 labels:
     - CVsTT
     - task{% for label in milestone_labels %}
@@ -74,12 +71,42 @@ body:
 -   type: markdown
     attributes:
         value: |
-            ## {{ milestone }} Task Details
+            ## {{ milestone }} Task Information
             
-            Please provide comprehensive information about this {{ milestone }} task to ensure clear expectations and successful delivery.
+            Please fill in the details below for this {{ milestone }} task.
 
--   type: dropdown
-    id: priority
+-   id: task_id
+    type: input
+    attributes:
+        label: Task ID
+        description: |
+            A unique identifier for this task. This should be descriptive and unique within {{ milestone }}.
+        placeholder: 'e.g., implement-data-validation, update-documentation, create-api-endpoint'
+    validations:
+        required: true
+
+-   id: task_title
+    type: input
+    attributes:
+        label: Task Title
+        description: |
+            A short phrase that expands on the Task ID. This will be the full descriptive name of the task.
+        placeholder: 'e.g., Implement Data Validation Framework'
+    validations:
+        required: true
+
+-   id: description
+    type: textarea
+    attributes:
+        label: Description
+        description: |
+            Provide a detailed description of the task, including its primary aims, scope, and requirements.
+        placeholder: 'Describe the task's purpose, scope, and relevant technical details...'
+    validations:
+        required: true
+
+-   id: priority
+    type: dropdown
     attributes:
         label: Priority Level
         description: How urgent is this task?
@@ -89,6 +116,29 @@ body:
             - "Medium - Standard priority"
             - "Low - Nice to have"
         default: 2
+    validations:
+        required: true
+
+-   id: issue_category
+    type: dropdown
+    attributes:
+        label: "Issue Type"
+        description: "This is pre-set for {{ milestone }} tasks."
+        options:
+            - "task"
+        default: 0
+    validations:
+        required: true
+
+-   id: issue_kind
+    type: dropdown
+    attributes:
+        label: "Issue Kind"
+        options:
+            - "new"
+            - "modify"
+            - "fix"
+        default: 0
     validations:
         required: true
 
@@ -266,32 +316,17 @@ body:
     validations:
         required: true
 
--   type: markdown
-    attributes:
-        value: |
-            ## Assignment & Resources
-
--   id: assignees
-    type: input
-    attributes:
-        label: Suggested Assignees
-        description: |
-            GitHub usernames of people who should work on this task (comma-separated).
-        placeholder: '@username1, @username2'
-    validations:
-        required: false
-
 -   id: resources
     type: textarea
     attributes:
-        label: Additional Resources & Context
+        label: Related Resources & Documentation
         description: |
             Provide links to relevant documentation, tools, or additional context.
         placeholder: |
             - Technical documentation: [links]
             - Related repositories: [links] 
             - Reference implementations: [links]
-            - Contact for questions: @username
+            - Specifications: [links]
         render: markdown
     validations:
         required: false
@@ -302,6 +337,7 @@ def create_discussion_template():
     return Template("""name: 'CVsTT Discussion: {{ milestone }}'
 description: 'Start a {{ milestone }} discussion'
 title: '{{ milestone }} Discussion: <topic>'
+projects: ["WCRP-CMIP/4"]  # CVsTT project board
 labels:
     - CVsTT
     - discussion{% for label in milestone_labels %}
@@ -325,8 +361,8 @@ body:
     validations:
         required: true
 
--   type: dropdown
-    id: urgency
+-   id: urgency
+    type: dropdown
     attributes:
         label: Timeline/Urgency
         description: How quickly do you need input or resolution?
@@ -554,10 +590,8 @@ def main():
         
         # Get unique milestones and their labels
         milestone_labels_map = get_unique_milestones(entries)
-        all_labels = get_all_labels(entries)
         
         print(f"Found {len(milestone_labels_map)} unique milestones")
-        print(f"Found {len(all_labels)} unique labels")
         
         # Create template directory
         template_dir = Path(__file__).parent.parent / ".github" / "ISSUE_TEMPLATE"
@@ -567,16 +601,12 @@ def main():
         task_template = create_task_template()
         discussion_template = create_discussion_template()
         
-        # Prepare template data
-        all_labels_for_template = [{"label": label} for label in all_labels]
-        
         # Generate files for each milestone
         templates_created = 0
         for milestone, milestone_labels in milestone_labels_map.items():
             template_data = {
                 'milestone': milestone,
-                'milestone_labels': milestone_labels,
-                'all_labels': all_labels_for_template
+                'milestone_labels': milestone_labels
             }
             
             # Create task template file
@@ -606,6 +636,9 @@ def main():
         print(f"\nMilestones processed:")
         for milestone, labels in milestone_labels_map.items():
             print(f"   • {milestone} (labels: {', '.join(labels)})")
+        
+        print(f"\nNote: Milestones are automatically assigned based on categories.txt mapping")
+        print(f"      Templates can be referenced as issue templates for development work")
         
     except Exception as e:
         print(f"❌ Error: {e}")
