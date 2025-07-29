@@ -15,26 +15,16 @@ body:
             
             Use this template to start a discussion, gather community input, or propose ideas for Obs4MIP-REF work.
 
--   id: topic_summary
-    type: input
-    attributes:
-        label: Topic Summary
-        description: |
-            Provide a brief summary of what you'd like to discuss.
-        placeholder: 'In one or two sentences, what is this discussion about?'
-    validations:
-        required: true
-
--   id: urgency
-    type: dropdown
+-   type: dropdown
+    id: urgency
     attributes:
         label: Timeline/Urgency
         description: How quickly do you need input or resolution?
         options:
-            - "Critical - Decision needed immediately"
-            - "High - Need resolution within days"
-            - "Medium - Need resolution within weeks"
-            - "Low - Open-ended discussion"
+            - "Critical - Need resolution within days"
+            - "High - Need resolution within weeks"
+            - "Medium - Need resolution within 2-3 months"
+            - "Low - No specific timeline"
         default: 2
     validations:
         required: true
