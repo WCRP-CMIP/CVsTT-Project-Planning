@@ -71,37 +71,17 @@ body:
 -   type: markdown
     attributes:
         value: |
-            ## {{ milestone }} Task Information
+            ## {{ milestone }} Task Specification
             
-            Please fill in the details below for this {{ milestone }} task.
-
--   id: task_id
-    type: input
-    attributes:
-        label: Task ID
-        description: |
-            A unique identifier for this task. This should be descriptive and unique within {{ milestone }}.
-        placeholder: 'e.g., implement-data-validation, update-documentation, create-api-endpoint'
-    validations:
-        required: true
-
--   id: task_title
-    type: input
-    attributes:
-        label: Task Title
-        description: |
-            A short phrase that expands on the Task ID. This will be the full descriptive name of the task.
-        placeholder: 'e.g., Implement Data Validation Framework'
-    validations:
-        required: true
+            Define a task for {{ milestone }} development work.
 
 -   id: description
     type: textarea
     attributes:
-        label: Description
+        label: Task Description
         description: |
-            Provide a detailed description of the task, including its primary aims, scope, and requirements.
-        placeholder: 'Describe the task purpose, scope, and relevant technical details'
+            Provide a detailed description of the task, including its primary aims, scope, and technical requirements.
+        placeholder: 'Describe what needs to be built, implemented, or fixed'
     validations:
         required: true
 
@@ -119,52 +99,34 @@ body:
     validations:
         required: true
 
--   id: issue_category
-    type: dropdown
-    attributes:
-        label: "Issue Type"
-        description: "This is pre-set for {{ milestone }} tasks."
-        options:
-            - "task"
-        default: 0
-    validations:
-        required: true
-
--   id: issue_kind
-    type: dropdown
-    attributes:
-        label: "Issue Kind"
-        options:
-            - "new"
-            - "modify"
-            - "fix"
-        default: 0
-    validations:
-        required: true
-
 -   type: markdown
     attributes:
         value: |
-            ## Requirements Definition
+            ## Task Specification
             
-            Define what needs to be delivered for this task to be considered complete.
+            Define the deliverables and acceptance criteria for this development task.
 
 -   id: minimum_requirements
     type: textarea
     attributes:
-        label: Minimum Requirements
+        label: Minimum Viable Product (MVP)
         description: |
             Define the minimum deliverables required for this task to be considered complete.
             
-            Be specific and measurable:
-            - Exact outputs, formats, standards
+            Specify:
+            - Core functionality that must be implemented
+            - Essential outputs, formats, and standards
             - Quality criteria and acceptance thresholds
-            - Dependencies that must be satisfied
+            - Critical dependencies that must be satisfied
         placeholder: |
-            - Specific deliverable 1 with clear acceptance criteria
-            - Specific deliverable 2 meeting quality standard X
-            - Integration tests passing
-            - Documentation updated
+            **Must have:**
+            - Core feature working
+            - Basic tests passing
+            - Minimal documentation
+            
+            **Acceptance:**
+            - Code works as specified
+            - Passes review
         render: markdown
     validations:
         required: true
@@ -172,16 +134,17 @@ body:
 -   id: ideal_requirements
     type: textarea
     attributes:
-        label: Ideal Requirements (Optional)
+        label: Ideal Implementation
         description: |
-            Define additional scope and deliverables if time and resources permit.
+            Define the ideal scope and deliverables if time and resources permit.
             
-            Include stretch goals and enhancements that would add value.
+            Include enhancements beyond the MVP that would add significant value.
         placeholder: |
-            - Enhanced feature with advanced capabilities
-            - Comprehensive documentation with examples
+            **Nice to have:**
+            - Advanced features
             - Performance optimizations
-            - Additional test coverage
+            - Comprehensive tests
+            - Full documentation
         render: markdown
     validations:
         required: false
@@ -191,26 +154,21 @@ body:
         value: |
             ## Support & Quality Assurance
             
-            Describe how you will support the assignee(s) and ensure work quality.
+            Describe the support framework and quality assurance approach.
 
 -   id: assistance_plan
     type: textarea
     attributes:
-        label: How You Plan to Assist
+        label: Support Plan
         description: |
-            Outline your support plan and quality assurance approach.
+            Outline the support and quality assurance approach for this task.
             
-            Include:
-            - Review process and checkpoints
-            - Resources you'll provide
-            - Expertise you'll contribute
-            - Quality assurance measures
+            Include review processes, resources, and expertise available.
         placeholder: |
-            - Weekly progress reviews and technical guidance
-            - Provide access to relevant documentation and systems
-            - Code review and testing support
-            - Subject matter expertise on specific area
-            - Final deliverable review and acceptance
+            **Available support:**
+            - Code review and feedback
+            - Technical guidance
+            - Access to resources
         render: markdown
     validations:
         required: true
@@ -220,32 +178,22 @@ body:
         value: |
             ## Context & Dependencies
             
-            Provide strategic context and identify task relationships.
+            Provide project context and identify task relationships.
 
 -   id: context_dependencies
     type: textarea
     attributes:
-        label: Priority, Importance, and Dependencies
+        label: Project Context and Dependencies
         description: |
-            Explain the strategic importance and constraints for this task.
-            
-            Address:
-            - Business/technical justification
-            - Impact on project goals
-            - Task dependencies and relationships
-            - External constraints or deadlines
+            Explain the strategic importance and constraints for this task within the {{ milestone }} project.
         placeholder: |
-            **Strategic Importance:**
-            - Critical for {{ milestone }} milestone completion
-            - Enables downstream work on specific areas
+            **Why needed:**
+            - Required for milestone X
+            - Blocks/enables other work
             
             **Dependencies:**
-            - Requires completion of: issue numbers
-            - Blocks progress on: issue numbers
-            
-            **Constraints:**
-            - Hard deadline: date due to reason
-            - Resource limitations: specify
+            - Needs: task A, data B
+            - Blocks: task C, task D
         render: markdown
     validations:
         required: true
@@ -255,33 +203,41 @@ body:
         value: |
             ## Timeline & Planning
             
-            Provide realistic time estimates and key milestones.
+            Provide realistic time estimates and development milestones.
 
 -   id: timeline
     type: textarea
     attributes:
-        label: Predicted Time Frame
+        label: Development Timeline
         description: |
-            Provide realistic time estimates with clear reasoning.
-            
-            Include:
-            - Start date and duration estimates
-            - Key milestones and checkpoints
-            - Buffer time for unknowns
-            - Factors that could affect timeline
+            Provide realistic time estimates with clear reasoning and development phases.
         placeholder: |
-            **Timeline Estimate:**
-            - Earliest start: date (dependent on prerequisite)
-            - Minimum scope: X days/weeks
-            - Ideal scope: Y days/weeks
-            - Key checkpoints: dates and deliverables
+            **Estimate:**
+            - Start: when ready
+            - MVP: X weeks
+            - Full: Y weeks
             
-            **Risk Factors:**
-            - Factor 1: could add time
-            - Factor 2: might save time
+            **Risks:**
+            - Complex integration
+            - External dependencies
         render: markdown
     validations:
         required: true
+
+-   id: resources
+    type: textarea
+    attributes:
+        label: Technical Resources & References
+        description: |
+            Provide links to relevant technical documentation, tools, and references.
+        placeholder: |
+            **Resources:**
+            - API docs: link
+            - Code repo: link
+            - Examples: link
+        render: markdown
+    validations:
+        required: false
 
 -   type: markdown
     attributes:
@@ -295,42 +251,19 @@ body:
     attributes:
         label: Consequences of Delay
         description: |
-            Analyze the impact if this task is delayed or not completed.
-            
-            Consider:
-            - Direct impact on dependent tasks
-            - Effect on milestone dates
-            - Business/technical consequences
-            - Risk mitigation options
+            Analyze the impact if this task is delayed or not completed, and identify mitigation strategies.
         placeholder: |
-            **Delay Impact:**
-            - Immediate effects: within 1-2 weeks
-            - Milestone impact: effect on {{ milestone }} timeline
-            - Business consequences: cost, compliance, user impact
+            **If delayed:**
+            - Blocks milestone completion
+            - Affects other tasks
             
-            **Risk Mitigation:**
-            - Alternative approach: backup plan
-            - Minimum viable solution: reduced scope option
-            - Resource reallocation: options if needed
+            **Mitigation:**
+            - Reduce scope to MVP
+            - Get help from team
         render: markdown
     validations:
         required: true
-
--   id: resources
-    type: textarea
-    attributes:
-        label: Related Resources & Documentation
-        description: |
-            Provide links to relevant documentation, tools, or additional context.
-        placeholder: |
-            - Technical documentation: links
-            - Related repositories: links
-            - Reference implementations: links
-            - Specifications: links
-        render: markdown
-    validations:
-        required: false
-""")
+"""))
 
 def create_discussion_template():
     """Create Jinja2 template for discussion issues in WCRP-universe style."""
@@ -385,17 +318,11 @@ body:
             - Relevant history or previous discussions
             - Relationship to {{ milestone }} work
         placeholder: |
-            **Current Situation:**
-            [Describe what's happening now]
+            **Current situation:**
+            What's happening now with {{ milestone }}
             
-            **Problem/Need:**
-            [What prompted this discussion]
-            
-            **{{ milestone }} Context:**
-            [How this relates to {{ milestone }} work]
-            
-            **Previous Work:**
-            [Any relevant history or prior discussions]
+            **Why discuss:**
+            What prompted this discussion
         render: markdown
     validations:
         required: true
@@ -416,11 +343,10 @@ body:
             
             Use bullet points or numbered lists for clarity.
         placeholder: |
-            1. Should we prioritize X over Y for {{ milestone }}?
-            2. What are the trade-offs between approaches A and B?
-            3. How does this impact {{ milestone }} timeline and deliverables?
-            4. What resources or expertise do we need?
-            5. Are there any compliance or policy considerations?
+            1. Should we approach this as X or Y?
+            2. What are the trade-offs?
+            3. How does this affect our direction?
+            4. What do we need to consider?
         render: markdown
     validations:
         required: true
@@ -432,70 +358,16 @@ body:
         description: |
             If you have specific options or proposals to discuss, list them here.
         placeholder: |
-            **Option A:** [Approach description]
-            - Pros: [advantages]
-            - Cons: [disadvantages]
-            - Impact on {{ milestone }}: [specific effects]
-            - Resource requirements: [what's needed]
+            **Option A:** Approach description
+            - Pros: advantages
+            - Cons: disadvantages
             
-            **Option B:** [Alternative approach]
-            - Pros: [advantages]
-            - Cons: [disadvantages]
-            - Impact on {{ milestone }}: [specific effects]
-            - Resource requirements: [what's needed]
+            **Option B:** Alternative approach
+            - Pros: advantages
+            - Cons: disadvantages
         render: markdown
     validations:
         required: false
-
--   type: markdown
-    attributes:
-        value: |
-            ## Impact & Stakeholders
-            
-            Identify who should be involved and what's at stake.
-
--   id: stakeholders
-    type: textarea
-    attributes:
-        label: Relevant Stakeholders
-        description: |
-            Who should be involved in this discussion?
-            
-            You can @mention specific people or teams, or describe groups that should provide input.
-        placeholder: |
-            **Decision Makers:**
-            - @username (role/responsibility)
-            
-            **Subject Matter Experts:**
-            - Teams working on [related area]
-            - @username (specific expertise)
-            
-            **Affected Parties:**
-            - [Groups that will be impacted by decisions]
-        render: markdown
-    validations:
-        required: false
-
--   id: impact_consequences
-    type: textarea
-    attributes:
-        label: Impact & Consequences
-        description: |
-            What's affected by this discussion and what happens if no decision is made?
-        placeholder: |
-            **Areas Affected:**
-            - {{ milestone }} timeline and deliverables
-            - [Other systems, processes, or teams]
-            
-            **Consequences of No Decision:**
-            - [What happens if we don't resolve this]
-            - [Potential risks or missed opportunities]
-            
-            **Decision Timeline:**
-            - [When do we need to decide by and why]
-        render: markdown
-    validations:
-        required: true
 
 -   type: markdown
     attributes:
@@ -511,11 +383,10 @@ body:
             
             Be specific about the type of input or decisions needed.
         placeholder: |
-            By the end of this discussion, we should have:
-            - [ ] Clear consensus on the recommended approach
-            - [ ] List of action items with assigned owners
-            - [ ] Updated timeline for {{ milestone }} if needed
-            - [ ] Identified risks and mitigation strategies
+            **Goal:**
+            - Reach consensus on approach
+            - Identify action items
+            - Clarify requirements
         render: markdown
     validations:
         required: true
@@ -528,10 +399,47 @@ body:
             Link to any relevant documents, previous discussions, or external resources.
         placeholder: |
             - Related issue: #123
-            - Previous discussion: [link]
-            - Technical documentation: [link]
-            - Reference implementations: [link]
-            - Meeting notes: [link]
+            - Previous discussion: link
+            - Documentation: link
+        render: markdown
+    validations:
+        required: false
+
+-   type: markdown
+    attributes:
+        value: |
+            ## Impact & Stakeholders (Optional)
+            
+            Additional context about stakeholders and consequences.
+
+-   id: stakeholders
+    type: textarea
+    attributes:
+        label: Relevant Stakeholders
+        description: |
+            Who should be involved in this discussion? (Optional)
+        placeholder: |
+            **Key people:**
+            - @username (role)
+            - Team or group
+        render: markdown
+    validations:
+        required: false
+
+-   id: impact_consequences
+    type: textarea
+    attributes:
+        label: Impact & Consequences
+        description: |
+            What's affected by this discussion and what happens if no decision is made? (Optional)
+        placeholder: |
+            **What's affected:**
+            - {{ milestone }} timeline
+            - Other work or decisions
+            
+            **If no decision:**
+            - Default action
+            - Potential issues
         render: markdown
     validations:
         required: false
