@@ -41,7 +41,7 @@ body:
         label: Description
         description: |
             Provide a detailed description of the task, including its primary aims, scope, and requirements.
-        placeholder: 'Describe the task's purpose, scope, and relevant technical details...'
+        placeholder: 'Describe the task purpose, scope, and relevant technical details'
     validations:
         required: true
 
@@ -101,10 +101,10 @@ body:
             - Quality criteria and acceptance thresholds
             - Dependencies that must be satisfied
         placeholder: |
-            - [ ] Specific deliverable 1 with clear acceptance criteria
-            - [ ] Specific deliverable 2 meeting quality standard X
-            - [ ] Integration tests passing
-            - [ ] Documentation updated
+            - Specific deliverable 1 with clear acceptance criteria
+            - Specific deliverable 2 meeting quality standard X
+            - Integration tests passing
+            - Documentation updated
         render: markdown
     validations:
         required: true
@@ -118,10 +118,10 @@ body:
             
             Include stretch goals and enhancements that would add value.
         placeholder: |
-            - [ ] Enhanced feature with advanced capabilities
-            - [ ] Comprehensive documentation with examples
-            - [ ] Performance optimizations
-            - [ ] Additional test coverage
+            - Enhanced feature with advanced capabilities
+            - Comprehensive documentation with examples
+            - Performance optimizations
+            - Additional test coverage
         render: markdown
     validations:
         required: false
@@ -149,7 +149,7 @@ body:
             - Weekly progress reviews and technical guidance
             - Provide access to relevant documentation and systems
             - Code review and testing support
-            - Subject matter expertise on [specific area]
+            - Subject matter expertise on specific area
             - Final deliverable review and acceptance
         render: markdown
     validations:
@@ -177,15 +177,15 @@ body:
         placeholder: |
             **Strategic Importance:**
             - Critical for EMD milestone completion
-            - Enables downstream work on [specific areas]
+            - Enables downstream work on specific areas
             
             **Dependencies:**
-            - Requires completion of: #[issue numbers]
-            - Blocks progress on: #[issue numbers]
+            - Requires completion of: issue numbers
+            - Blocks progress on: issue numbers
             
             **Constraints:**
-            - Hard deadline: [date] due to [reason]
-            - Resource limitations: [specify]
+            - Hard deadline: date due to reason
+            - Resource limitations: specify
         render: markdown
     validations:
         required: true
@@ -211,14 +211,14 @@ body:
             - Factors that could affect timeline
         placeholder: |
             **Timeline Estimate:**
-            - Earliest start: [date] (dependent on [prerequisite])
-            - Minimum scope: [X] days/weeks
-            - Ideal scope: [Y] days/weeks
-            - Key checkpoints: [dates and deliverables]
+            - Earliest start: date (dependent on prerequisite)
+            - Minimum scope: X days/weeks
+            - Ideal scope: Y days/weeks
+            - Key checkpoints: dates and deliverables
             
             **Risk Factors:**
-            - [Factor 1]: could add [time]
-            - [Factor 2]: might save [time]
+            - Factor 1: could add time
+            - Factor 2: might save time
         render: markdown
     validations:
         required: true
@@ -244,14 +244,14 @@ body:
             - Risk mitigation options
         placeholder: |
             **Delay Impact:**
-            - Immediate effects: [within 1-2 weeks]
-            - Milestone impact: [effect on EMD timeline]
-            - Business consequences: [cost, compliance, user impact]
+            - Immediate effects: within 1-2 weeks
+            - Milestone impact: effect on EMD timeline
+            - Business consequences: cost, compliance, user impact
             
             **Risk Mitigation:**
-            - Alternative approach: [backup plan]
-            - Minimum viable solution: [reduced scope option]
-            - Resource reallocation: [options if needed]
+            - Alternative approach: backup plan
+            - Minimum viable solution: reduced scope option
+            - Resource reallocation: options if needed
         render: markdown
     validations:
         required: true
@@ -263,10 +263,10 @@ body:
         description: |
             Provide links to relevant documentation, tools, or additional context.
         placeholder: |
-            - Technical documentation: [links]
-            - Related repositories: [links] 
-            - Reference implementations: [links]
-            - Specifications: [links]
+            - Technical documentation: links
+            - Related repositories: links
+            - Reference implementations: links
+            - Specifications: links
         render: markdown
     validations:
         required: false
