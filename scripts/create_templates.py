@@ -110,7 +110,6 @@ body:
     type: textarea
     attributes:
         label: Minimum Deliverables (Essential)
-        description: ""
         placeholder: |
             **Must have:**
             - Core feature working
@@ -201,7 +200,6 @@ body:
     type: textarea
     attributes:
         label: Development Timeline
-        description: ""
         placeholder: |
             **Estimate:**
             - Start: when ready
