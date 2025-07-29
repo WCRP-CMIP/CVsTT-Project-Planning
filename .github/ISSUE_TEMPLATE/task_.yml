@@ -137,12 +137,12 @@ body:
         value: |
             ## Timeline & Planning
             
-            Provide realistic time estimates and development milestones.
+            Provide realistic time estimates and key milestones.
 
 -   id: timeline
     type: textarea
     attributes:
-        label: Development Timeline
+        label: Timeline
         placeholder: |
             **Estimate:**
             - Start: when ready
