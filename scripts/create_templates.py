@@ -61,217 +61,482 @@ def get_all_labels(entries):
     return sorted(list(set(entry['label'] for entry in entries)))
 
 def create_task_template():
-    """Create Jinja2 template for task issues."""
-    return Template("""name: 'CVsTT Task - {{ milestone }}'
+    """Create Jinja2 template for task issues in WCRP-universe style."""
+    return Template("""name: 'CVsTT Task: {{ milestone }}'
 description: 'Create a {{ milestone }} task'
-title: '{{ milestone }}: [Brief description]'
-labels: ['CVsTT', 'task'{% for label in milestone_labels %}, '{{ label }}'{% endfor %}]
+title: '{{ milestone }}: <brief description>'
+labels:
+    - CVsTT
+    - task{% for label in milestone_labels %}
+    - {{ label }}{% endfor %}
 body:
 
-- type: input
-  attributes:
-    label: Task Title
-    description: Brief description of the task
-  validations:
-    required: true
+-   type: markdown
+    attributes:
+        value: |
+            ## {{ milestone }} Task Details
+            
+            Please provide comprehensive information about this {{ milestone }} task to ensure clear expectations and successful delivery.
 
-- type: dropdown
-  attributes:
-    label: Priority
-    options:
-      - Critical
-      - High
-      - Medium
-      - Low
-    default: 2
-  validations:
-    required: true
+-   type: dropdown
+    id: priority
+    attributes:
+        label: Priority Level
+        description: How urgent is this task?
+        options:
+            - "Critical - Blocking other work"
+            - "High - Important for milestone"
+            - "Medium - Standard priority"
+            - "Low - Nice to have"
+        default: 2
+    validations:
+        required: true
 
-- type: textarea
-  attributes:
-    label: "What is needed (minimum requirements)"
-    description: Define minimum deliverables required for completion
-    placeholder: |
-      - [ ] Specific deliverable 1
-      - [ ] Specific deliverable 2
-      - [ ] Quality criteria met
-  validations:
-    required: true
+-   type: markdown
+    attributes:
+        value: |
+            ## Requirements Definition
+            
+            Define what needs to be delivered for this task to be considered complete.
 
-- type: textarea
-  attributes:
-    label: "What is needed (ideal requirements)"
-    description: Define ideal scope if time and resources permit
-    placeholder: |
-      - [ ] Enhanced feature X
-      - [ ] Additional documentation
-      - [ ] Performance optimizations
-  validations:
-    required: false
+-   id: minimum_requirements
+    type: textarea
+    attributes:
+        label: Minimum Requirements
+        description: |
+            Define the minimum deliverables required for this task to be considered complete.
+            
+            Be specific and measurable:
+            - Exact outputs, formats, standards
+            - Quality criteria and acceptance thresholds
+            - Dependencies that must be satisfied
+        placeholder: |
+            - [ ] Specific deliverable 1 with clear acceptance criteria
+            - [ ] Specific deliverable 2 meeting quality standard X
+            - [ ] Integration tests passing
+            - [ ] Documentation updated
+        render: markdown
+    validations:
+        required: true
 
-- type: textarea
-  attributes:
-    label: "How you plan to assist"
-    description: How will you support the assignee(s) and verify work quality
-    placeholder: |
-      - Weekly progress reviews
-      - Provide access to documentation and resources
-      - Code review and testing support
-      - Subject matter expertise on [specific area]
-  validations:
-    required: true
+-   id: ideal_requirements
+    type: textarea
+    attributes:
+        label: Ideal Requirements (Optional)
+        description: |
+            Define additional scope and deliverables if time and resources permit.
+            
+            Include stretch goals and enhancements that would add value.
+        placeholder: |
+            - [ ] Enhanced feature with advanced capabilities
+            - [ ] Comprehensive documentation with examples
+            - [ ] Performance optimizations
+            - [ ] Additional test coverage
+        render: markdown
+    validations:
+        required: false
 
-- type: textarea
-  attributes:
-    label: "Where/Why: Priority, Importance, Dependencies"
-    description: Context, strategic importance, deadlines, and task relationships
-    placeholder: |
-      **Context:** Affects [specific systems/components]
-      **Business justification:** [why this matters]
-      **Dependencies:** Requires completion of #[issue numbers]
-      **Dependents:** Blocks progress on #[issue numbers]
-      **Deadline:** [date and reason]
-  validations:
-    required: true
+-   type: markdown
+    attributes:
+        value: |
+            ## Support & Quality Assurance
+            
+            Describe how you will support the assignee(s) and ensure work quality.
 
-- type: textarea
-  attributes:
-    label: "When: Predicted Time Frame"
-    description: Realistic time estimates with reasoning and milestones
-    placeholder: |
-      **Start date:** [earliest possible date]
-      **Duration estimate:** [X days/weeks for minimum scope]
-      **Key checkpoints:** [dates and deliverables]
-      **Buffer time:** [additional time for unknowns]
-  validations:
-    required: true
+-   id: assistance_plan
+    type: textarea
+    attributes:
+        label: How You Plan to Assist
+        description: |
+            Outline your support plan and quality assurance approach.
+            
+            Include:
+            - Review process and checkpoints
+            - Resources you'll provide
+            - Expertise you'll contribute
+            - Quality assurance measures
+        placeholder: |
+            - Weekly progress reviews and technical guidance
+            - Provide access to relevant documentation and systems
+            - Code review and testing support
+            - Subject matter expertise on [specific area]
+            - Final deliverable review and acceptance
+        render: markdown
+    validations:
+        required: true
 
-- type: textarea
-  attributes:
-    label: "What if: Consequences from delay"
-    description: Impact analysis if delayed and risk mitigation options
-    placeholder: |
-      **Immediate impact:** [effects within 1-2 weeks]
-      **Milestone impact:** [how this affects project timeline]
-      **Business consequences:** [cost, user experience, compliance]
-      **Risk mitigation:** [backup plans and alternatives]
-  validations:
-    required: true
+-   type: markdown
+    attributes:
+        value: |
+            ## Context & Dependencies
+            
+            Provide strategic context and identify task relationships.
 
-- type: checkboxes
-  attributes:
-    label: Related Categories
-    options:
-{% for label_item in all_labels %}
-      - label: "{{ label_item.label }}"
-{% endfor %}
+-   id: context_dependencies
+    type: textarea
+    attributes:
+        label: Priority, Importance, and Dependencies
+        description: |
+            Explain the strategic importance and constraints for this task.
+            
+            Address:
+            - Business/technical justification
+            - Impact on project goals
+            - Task dependencies and relationships
+            - External constraints or deadlines
+        placeholder: |
+            **Strategic Importance:**
+            - Critical for {{ milestone }} milestone completion
+            - Enables downstream work on [specific areas]
+            
+            **Dependencies:**
+            - Requires completion of: #[issue numbers]
+            - Blocks progress on: #[issue numbers]
+            
+            **Constraints:**
+            - Hard deadline: [date] due to [reason]
+            - Resource limitations: [specify]
+        render: markdown
+    validations:
+        required: true
 
-- type: input
-  attributes:
-    label: Assignees
-    description: GitHub usernames (comma-separated)
-    placeholder: "@username1, @username2"
-  validations:
-    required: false
+-   type: markdown
+    attributes:
+        value: |
+            ## Timeline & Planning
+            
+            Provide realistic time estimates and key milestones.
+
+-   id: timeline
+    type: textarea
+    attributes:
+        label: Predicted Time Frame
+        description: |
+            Provide realistic time estimates with clear reasoning.
+            
+            Include:
+            - Start date and duration estimates
+            - Key milestones and checkpoints
+            - Buffer time for unknowns
+            - Factors that could affect timeline
+        placeholder: |
+            **Timeline Estimate:**
+            - Earliest start: [date] (dependent on [prerequisite])
+            - Minimum scope: [X] days/weeks
+            - Ideal scope: [Y] days/weeks
+            - Key checkpoints: [dates and deliverables]
+            
+            **Risk Factors:**
+            - [Factor 1]: could add [time]
+            - [Factor 2]: might save [time]
+        render: markdown
+    validations:
+        required: true
+
+-   type: markdown
+    attributes:
+        value: |
+            ## Risk Assessment
+            
+            Analyze potential impacts and mitigation strategies.
+
+-   id: delay_consequences
+    type: textarea
+    attributes:
+        label: Consequences of Delay
+        description: |
+            Analyze the impact if this task is delayed or not completed.
+            
+            Consider:
+            - Direct impact on dependent tasks
+            - Effect on milestone dates
+            - Business/technical consequences
+            - Risk mitigation options
+        placeholder: |
+            **Delay Impact:**
+            - Immediate effects: [within 1-2 weeks]
+            - Milestone impact: [effect on {{ milestone }} timeline]
+            - Business consequences: [cost, compliance, user impact]
+            
+            **Risk Mitigation:**
+            - Alternative approach: [backup plan]
+            - Minimum viable solution: [reduced scope option]
+            - Resource reallocation: [options if needed]
+        render: markdown
+    validations:
+        required: true
+
+-   type: markdown
+    attributes:
+        value: |
+            ## Assignment & Resources
+
+-   id: assignees
+    type: input
+    attributes:
+        label: Suggested Assignees
+        description: |
+            GitHub usernames of people who should work on this task (comma-separated).
+        placeholder: '@username1, @username2'
+    validations:
+        required: false
+
+-   id: resources
+    type: textarea
+    attributes:
+        label: Additional Resources & Context
+        description: |
+            Provide links to relevant documentation, tools, or additional context.
+        placeholder: |
+            - Technical documentation: [links]
+            - Related repositories: [links] 
+            - Reference implementations: [links]
+            - Contact for questions: @username
+        render: markdown
+    validations:
+        required: false
 """)
 
 def create_discussion_template():
-    """Create Jinja2 template for discussion issues."""
-    return Template("""name: 'CVsTT Discussion - {{ milestone }}'
+    """Create Jinja2 template for discussion issues in WCRP-universe style."""
+    return Template("""name: 'CVsTT Discussion: {{ milestone }}'
 description: 'Start a {{ milestone }} discussion'
-title: '{{ milestone }} Discussion: [Topic]'
-labels: ['CVsTT', 'discussion'{% for label in milestone_labels %}, '{{ label }}'{% endfor %}]
+title: '{{ milestone }} Discussion: <topic>'
+labels:
+    - CVsTT
+    - discussion{% for label in milestone_labels %}
+    - {{ label }}{% endfor %}
 body:
 
-- type: input
-  attributes:
-    label: Discussion Topic
-    description: What do you want to discuss about {{ milestone }}?
-  validations:
-    required: true
+-   type: markdown
+    attributes:
+        value: |
+            ## {{ milestone }} Discussion
+            
+            Use this template to start a discussion, gather community input, or propose ideas for {{ milestone }} work.
 
-- type: dropdown
-  attributes:
-    label: Urgency
-    options:
-      - Critical - Decision needed immediately
-      - High - Need resolution within days  
-      - Medium - Need resolution within weeks
-      - Low - Open-ended discussion
-    default: 2
-  validations:
-    required: true
+-   id: topic_summary
+    type: input
+    attributes:
+        label: Topic Summary
+        description: |
+            Provide a brief summary of what you'd like to discuss.
+        placeholder: 'In one or two sentences, what is this discussion about?'
+    validations:
+        required: true
 
-- type: textarea
-  attributes:
-    label: Background & Context
-    description: Provide context for this {{ milestone }} discussion
-    placeholder: |
-      **Current situation:** [what's happening now]
-      **Problem/need:** [what prompted this discussion]
-      **Why now:** [timing context]
-      **Relation to {{ milestone }}:** [how this affects the milestone]
-  validations:
-    required: true
+-   type: dropdown
+    id: urgency
+    attributes:
+        label: Timeline/Urgency
+        description: How quickly do you need input or resolution?
+        options:
+            - "Critical - Decision needed immediately"
+            - "High - Need resolution within days"
+            - "Medium - Need resolution within weeks"
+            - "Low - Open-ended discussion"
+        default: 2
+    validations:
+        required: true
 
-- type: textarea
-  attributes:
-    label: Key Questions
-    description: What specific questions should be addressed?
-    placeholder: |
-      1. Should we prioritize X over Y for {{ milestone }}?
-      2. What are the trade-offs between approaches A and B?
-      3. How does this impact {{ milestone }} timeline?
-      4. What resources are needed for each option?
-  validations:
-    required: true
+-   type: markdown
+    attributes:
+        value: |
+            ## Background & Context
+            
+            Provide sufficient context for others to understand and contribute to the discussion.
 
-- type: textarea
-  attributes:
-    label: Proposed Options
-    description: If you have specific options to discuss, outline them
-    placeholder: |
-      **Option A:** [approach description]
-      - Pros: [advantages]
-      - Cons: [disadvantages]
-      - Impact on {{ milestone }}: [how this affects milestone]
-      
-      **Option B:** [alternative approach]
-      - Pros: [advantages]
-      - Cons: [disadvantages]
-      - Impact on {{ milestone }}: [how this affects milestone]
-  validations:
-    required: false
+-   id: background
+    type: textarea
+    attributes:
+        label: Background/Context
+        description: |
+            Provide background information to help others understand the discussion topic.
+            
+            Include:
+            - Why this discussion is needed
+            - Current situation or problem
+            - Relevant history or previous discussions
+            - Relationship to {{ milestone }} work
+        placeholder: |
+            **Current Situation:**
+            [Describe what's happening now]
+            
+            **Problem/Need:**
+            [What prompted this discussion]
+            
+            **{{ milestone }} Context:**
+            [How this relates to {{ milestone }} work]
+            
+            **Previous Work:**
+            [Any relevant history or prior discussions]
+        render: markdown
+    validations:
+        required: true
 
-- type: textarea
-  attributes:
-    label: Impact & Consequences
-    description: What's affected and what happens if no decision is made?
-    placeholder: |
-      **Affected areas:** [systems, people, timeline]
-      **Impact on {{ milestone }}:** [specific milestone effects]
-      **No decision consequences:** [what happens without action]
-      **Decision timeline:** [when we need to decide]
-  validations:
-    required: true
+-   type: markdown
+    attributes:
+        value: |
+            ## Discussion Focus
+            
+            Define the key questions and areas for community input.
 
-- type: checkboxes
-  attributes:
-    label: Related Categories
-    options:
-{% for label_item in all_labels %}
-      - label: "{{ label_item.label }}"
-{% endfor %}
+-   id: main_points
+    type: textarea
+    attributes:
+        label: Main Discussion Points
+        description: |
+            What are the key points or questions you'd like the community to address?
+            
+            Use bullet points or numbered lists for clarity.
+        placeholder: |
+            1. Should we prioritize X over Y for {{ milestone }}?
+            2. What are the trade-offs between approaches A and B?
+            3. How does this impact {{ milestone }} timeline and deliverables?
+            4. What resources or expertise do we need?
+            5. Are there any compliance or policy considerations?
+        render: markdown
+    validations:
+        required: true
 
-- type: textarea
-  attributes:
-    label: Stakeholders
-    description: Who should participate in this discussion?
-    placeholder: |
-      - @username - [role/expertise]
-      - [Team/group] - [why they should be involved]
-  validations:
-    required: false
+-   id: proposed_options
+    type: textarea
+    attributes:
+        label: Options/Proposals (if applicable)
+        description: |
+            If you have specific options or proposals to discuss, list them here.
+        placeholder: |
+            **Option A:** [Approach description]
+            - Pros: [advantages]
+            - Cons: [disadvantages]
+            - Impact on {{ milestone }}: [specific effects]
+            - Resource requirements: [what's needed]
+            
+            **Option B:** [Alternative approach]
+            - Pros: [advantages]
+            - Cons: [disadvantages]
+            - Impact on {{ milestone }}: [specific effects]
+            - Resource requirements: [what's needed]
+        render: markdown
+    validations:
+        required: false
+
+-   type: markdown
+    attributes:
+        value: |
+            ## Impact & Stakeholders
+            
+            Identify who should be involved and what's at stake.
+
+-   id: stakeholders
+    type: textarea
+    attributes:
+        label: Relevant Stakeholders
+        description: |
+            Who should be involved in this discussion?
+            
+            You can @mention specific people or teams, or describe groups that should provide input.
+        placeholder: |
+            **Decision Makers:**
+            - @username (role/responsibility)
+            
+            **Subject Matter Experts:**
+            - Teams working on [related area]
+            - @username (specific expertise)
+            
+            **Affected Parties:**
+            - [Groups that will be impacted by decisions]
+        render: markdown
+    validations:
+        required: false
+
+-   id: impact_consequences
+    type: textarea
+    attributes:
+        label: Impact & Consequences
+        description: |
+            What's affected by this discussion and what happens if no decision is made?
+        placeholder: |
+            **Areas Affected:**
+            - {{ milestone }} timeline and deliverables
+            - [Other systems, processes, or teams]
+            
+            **Consequences of No Decision:**
+            - [What happens if we don't resolve this]
+            - [Potential risks or missed opportunities]
+            
+            **Decision Timeline:**
+            - [When do we need to decide by and why]
+        render: markdown
+    validations:
+        required: true
+
+-   type: markdown
+    attributes:
+        value: |
+            ## Desired Outcomes & Resources
+
+-   id: desired_outcome
+    type: textarea
+    attributes:
+        label: Desired Outcome
+        description: |
+            What do you hope to achieve from this discussion?
+            
+            Be specific about the type of input or decisions needed.
+        placeholder: |
+            By the end of this discussion, we should have:
+            - [ ] Clear consensus on the recommended approach
+            - [ ] List of action items with assigned owners
+            - [ ] Updated timeline for {{ milestone }} if needed
+            - [ ] Identified risks and mitigation strategies
+        render: markdown
+    validations:
+        required: true
+
+-   id: related_resources
+    type: textarea
+    attributes:
+        label: Related Resources
+        description: |
+            Link to any relevant documents, previous discussions, or external resources.
+        placeholder: |
+            - Related issue: #123
+            - Previous discussion: [link]
+            - Technical documentation: [link]
+            - Reference implementations: [link]
+            - Meeting notes: [link]
+        render: markdown
+    validations:
+        required: false
+
+-   type: markdown
+    attributes:
+        value: |
+            ## How to Participate
+            
+            👋 **Everyone is welcome to contribute to this discussion!**
+            
+            Please:
+            - Keep comments constructive and focused on {{ milestone }} goals
+            - Consider all perspectives and provide reasoning for recommendations
+            - Include examples or evidence where helpful
+            - Be respectful of different viewpoints and approaches
+            - Tag relevant stakeholders when appropriate
+
+-   id: participation_type
+    type: checkboxes
+    attributes:
+        label: Participation Needed
+        description: What kind of participation are you looking for?
+        options:
+            - label: "General comments and feedback"
+            - label: "Technical expertise and review"
+            - label: "Use case examples and requirements"
+            - label: "Implementation recommendations"
+            - label: "Resource and timeline input"
+    validations:
+        required: false
 """)
 
 def sanitize_filename(name):

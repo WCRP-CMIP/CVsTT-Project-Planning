@@ -1,111 +1,238 @@
-name: 'CVsTT Discussion - EMD'
+name: 'CVsTT Discussion: EMD'
 description: 'Start a EMD discussion'
-title: 'EMD Discussion: [Topic]'
-labels: ['CVsTT', 'discussion', 'EMD']
+title: 'EMD Discussion: <topic>'
+labels:
+    - CVsTT
+    - discussion
+    - EMD
 body:
 
-- type: input
-  attributes:
-    label: Discussion Topic
-    description: What do you want to discuss about EMD?
-  validations:
-    required: true
+-   type: markdown
+    attributes:
+        value: |
+            ## EMD Discussion
+            
+            Use this template to start a discussion, gather community input, or propose ideas for EMD work.
 
-- type: dropdown
-  attributes:
-    label: Urgency
-    options:
-      - Critical - Decision needed immediately
-      - High - Need resolution within days  
-      - Medium - Need resolution within weeks
-      - Low - Open-ended discussion
-    default: 2
-  validations:
-    required: true
+-   id: topic_summary
+    type: input
+    attributes:
+        label: Topic Summary
+        description: |
+            Provide a brief summary of what you'd like to discuss.
+        placeholder: 'In one or two sentences, what is this discussion about?'
+    validations:
+        required: true
 
-- type: textarea
-  attributes:
-    label: Background & Context
-    description: Provide context for this EMD discussion
-    placeholder: |
-      **Current situation:** [what's happening now]
-      **Problem/need:** [what prompted this discussion]
-      **Why now:** [timing context]
-      **Relation to EMD:** [how this affects the milestone]
-  validations:
-    required: true
+-   type: dropdown
+    id: urgency
+    attributes:
+        label: Timeline/Urgency
+        description: How quickly do you need input or resolution?
+        options:
+            - "Critical - Decision needed immediately"
+            - "High - Need resolution within days"
+            - "Medium - Need resolution within weeks"
+            - "Low - Open-ended discussion"
+        default: 2
+    validations:
+        required: true
 
-- type: textarea
-  attributes:
-    label: Key Questions
-    description: What specific questions should be addressed?
-    placeholder: |
-      1. Should we prioritize X over Y for EMD?
-      2. What are the trade-offs between approaches A and B?
-      3. How does this impact EMD timeline?
-      4. What resources are needed for each option?
-  validations:
-    required: true
+-   type: markdown
+    attributes:
+        value: |
+            ## Background & Context
+            
+            Provide sufficient context for others to understand and contribute to the discussion.
 
-- type: textarea
-  attributes:
-    label: Proposed Options
-    description: If you have specific options to discuss, outline them
-    placeholder: |
-      **Option A:** [approach description]
-      - Pros: [advantages]
-      - Cons: [disadvantages]
-      - Impact on EMD: [how this affects milestone]
-      
-      **Option B:** [alternative approach]
-      - Pros: [advantages]
-      - Cons: [disadvantages]
-      - Impact on EMD: [how this affects milestone]
-  validations:
-    required: false
+-   id: background
+    type: textarea
+    attributes:
+        label: Background/Context
+        description: |
+            Provide background information to help others understand the discussion topic.
+            
+            Include:
+            - Why this discussion is needed
+            - Current situation or problem
+            - Relevant history or previous discussions
+            - Relationship to EMD work
+        placeholder: |
+            **Current Situation:**
+            [Describe what's happening now]
+            
+            **Problem/Need:**
+            [What prompted this discussion]
+            
+            **EMD Context:**
+            [How this relates to EMD work]
+            
+            **Previous Work:**
+            [Any relevant history or prior discussions]
+        render: markdown
+    validations:
+        required: true
 
-- type: textarea
-  attributes:
-    label: Impact & Consequences
-    description: What's affected and what happens if no decision is made?
-    placeholder: |
-      **Affected areas:** [systems, people, timeline]
-      **Impact on EMD:** [specific milestone effects]
-      **No decision consequences:** [what happens without action]
-      **Decision timeline:** [when we need to decide]
-  validations:
-    required: true
+-   type: markdown
+    attributes:
+        value: |
+            ## Discussion Focus
+            
+            Define the key questions and areas for community input.
 
-- type: checkboxes
-  attributes:
-    label: Related Categories
-    options:
+-   id: main_points
+    type: textarea
+    attributes:
+        label: Main Discussion Points
+        description: |
+            What are the key points or questions you'd like the community to address?
+            
+            Use bullet points or numbered lists for clarity.
+        placeholder: |
+            1. Should we prioritize X over Y for EMD?
+            2. What are the trade-offs between approaches A and B?
+            3. How does this impact EMD timeline and deliverables?
+            4. What resources or expertise do we need?
+            5. Are there any compliance or policy considerations?
+        render: markdown
+    validations:
+        required: true
 
-      - label: "EMD"
+-   id: proposed_options
+    type: textarea
+    attributes:
+        label: Options/Proposals (if applicable)
+        description: |
+            If you have specific options or proposals to discuss, list them here.
+        placeholder: |
+            **Option A:** [Approach description]
+            - Pros: [advantages]
+            - Cons: [disadvantages]
+            - Impact on EMD: [specific effects]
+            - Resource requirements: [what's needed]
+            
+            **Option B:** [Alternative approach]
+            - Pros: [advantages]
+            - Cons: [disadvantages]
+            - Impact on EMD: [specific effects]
+            - Resource requirements: [what's needed]
+        render: markdown
+    validations:
+        required: false
 
-      - label: "ESGF"
+-   type: markdown
+    attributes:
+        value: |
+            ## Impact & Stakeholders
+            
+            Identify who should be involved and what's at stake.
 
-      - label: "citation"
+-   id: stakeholders
+    type: textarea
+    attributes:
+        label: Relevant Stakeholders
+        description: |
+            Who should be involved in this discussion?
+            
+            You can @mention specific people or teams, or describe groups that should provide input.
+        placeholder: |
+            **Decision Makers:**
+            - @username (role/responsibility)
+            
+            **Subject Matter Experts:**
+            - Teams working on [related area]
+            - @username (specific expertise)
+            
+            **Affected Parties:**
+            - [Groups that will be impacted by decisions]
+        render: markdown
+    validations:
+        required: false
 
-      - label: "esgvoc"
+-   id: impact_consequences
+    type: textarea
+    attributes:
+        label: Impact & Consequences
+        description: |
+            What's affected by this discussion and what happens if no decision is made?
+        placeholder: |
+            **Areas Affected:**
+            - EMD timeline and deliverables
+            - [Other systems, processes, or teams]
+            
+            **Consequences of No Decision:**
+            - [What happens if we don't resolve this]
+            - [Potential risks or missed opportunities]
+            
+            **Decision Timeline:**
+            - [When do we need to decide by and why]
+        render: markdown
+    validations:
+        required: true
 
-      - label: "forcings"
+-   type: markdown
+    attributes:
+        value: |
+            ## Desired Outcomes & Resources
 
-      - label: "framework-infrastructure"
+-   id: desired_outcome
+    type: textarea
+    attributes:
+        label: Desired Outcome
+        description: |
+            What do you hope to achieve from this discussion?
+            
+            Be specific about the type of input or decisions needed.
+        placeholder: |
+            By the end of this discussion, we should have:
+            - [ ] Clear consensus on the recommended approach
+            - [ ] List of action items with assigned owners
+            - [ ] Updated timeline for EMD if needed
+            - [ ] Identified risks and mitigation strategies
+        render: markdown
+    validations:
+        required: true
 
-      - label: "obs-ref"
+-   id: related_resources
+    type: textarea
+    attributes:
+        label: Related Resources
+        description: |
+            Link to any relevant documents, previous discussions, or external resources.
+        placeholder: |
+            - Related issue: #123
+            - Previous discussion: [link]
+            - Technical documentation: [link]
+            - Reference implementations: [link]
+            - Meeting notes: [link]
+        render: markdown
+    validations:
+        required: false
 
-      - label: "other"
+-   type: markdown
+    attributes:
+        value: |
+            ## How to Participate
+            
+            👋 **Everyone is welcome to contribute to this discussion!**
+            
+            Please:
+            - Keep comments constructive and focused on EMD goals
+            - Consider all perspectives and provide reasoning for recommendations
+            - Include examples or evidence where helpful
+            - Be respectful of different viewpoints and approaches
+            - Tag relevant stakeholders when appropriate
 
-      - label: "variable-registry"
-
-
-- type: textarea
-  attributes:
-    label: Stakeholders
-    description: Who should participate in this discussion?
-    placeholder: |
-      - @username - [role/expertise]
-      - [Team/group] - [why they should be involved]
-  validations:
-    required: false
+-   id: participation_type
+    type: checkboxes
+    attributes:
+        label: Participation Needed
+        description: What kind of participation are you looking for?
+        options:
+            - label: "General comments and feedback"
+            - label: "Technical expertise and review"
+            - label: "Use case examples and requirements"
+            - label: "Implementation recommendations"
+            - label: "Resource and timeline input"
+    validations:
+        required: false

@@ -1,127 +1,233 @@
-name: 'CVsTT Task - EMD'
+name: 'CVsTT Task: EMD'
 description: 'Create a EMD task'
-title: 'EMD: [Brief description]'
-labels: ['CVsTT', 'task', 'EMD']
+title: 'EMD: <brief description>'
+labels:
+    - CVsTT
+    - task
+    - EMD
 body:
 
-- type: input
-  attributes:
-    label: Task Title
-    description: Brief description of the task
-  validations:
-    required: true
+-   type: markdown
+    attributes:
+        value: |
+            ## EMD Task Details
+            
+            Please provide comprehensive information about this EMD task to ensure clear expectations and successful delivery.
 
-- type: dropdown
-  attributes:
-    label: Priority
-    options:
-      - Critical
-      - High
-      - Medium
-      - Low
-    default: 2
-  validations:
-    required: true
+-   type: dropdown
+    id: priority
+    attributes:
+        label: Priority Level
+        description: How urgent is this task?
+        options:
+            - "Critical - Blocking other work"
+            - "High - Important for milestone"
+            - "Medium - Standard priority"
+            - "Low - Nice to have"
+        default: 2
+    validations:
+        required: true
 
-- type: textarea
-  attributes:
-    label: "What is needed (minimum requirements)"
-    description: Define minimum deliverables required for completion
-    placeholder: |
-      - [ ] Specific deliverable 1
-      - [ ] Specific deliverable 2
-      - [ ] Quality criteria met
-  validations:
-    required: true
+-   type: markdown
+    attributes:
+        value: |
+            ## Requirements Definition
+            
+            Define what needs to be delivered for this task to be considered complete.
 
-- type: textarea
-  attributes:
-    label: "What is needed (ideal requirements)"
-    description: Define ideal scope if time and resources permit
-    placeholder: |
-      - [ ] Enhanced feature X
-      - [ ] Additional documentation
-      - [ ] Performance optimizations
-  validations:
-    required: false
+-   id: minimum_requirements
+    type: textarea
+    attributes:
+        label: Minimum Requirements
+        description: |
+            Define the minimum deliverables required for this task to be considered complete.
+            
+            Be specific and measurable:
+            - Exact outputs, formats, standards
+            - Quality criteria and acceptance thresholds
+            - Dependencies that must be satisfied
+        placeholder: |
+            - [ ] Specific deliverable 1 with clear acceptance criteria
+            - [ ] Specific deliverable 2 meeting quality standard X
+            - [ ] Integration tests passing
+            - [ ] Documentation updated
+        render: markdown
+    validations:
+        required: true
 
-- type: textarea
-  attributes:
-    label: "How you plan to assist"
-    description: How will you support the assignee(s) and verify work quality
-    placeholder: |
-      - Weekly progress reviews
-      - Provide access to documentation and resources
-      - Code review and testing support
-      - Subject matter expertise on [specific area]
-  validations:
-    required: true
+-   id: ideal_requirements
+    type: textarea
+    attributes:
+        label: Ideal Requirements (Optional)
+        description: |
+            Define additional scope and deliverables if time and resources permit.
+            
+            Include stretch goals and enhancements that would add value.
+        placeholder: |
+            - [ ] Enhanced feature with advanced capabilities
+            - [ ] Comprehensive documentation with examples
+            - [ ] Performance optimizations
+            - [ ] Additional test coverage
+        render: markdown
+    validations:
+        required: false
 
-- type: textarea
-  attributes:
-    label: "Where/Why: Priority, Importance, Dependencies"
-    description: Context, strategic importance, deadlines, and task relationships
-    placeholder: |
-      **Context:** Affects [specific systems/components]
-      **Business justification:** [why this matters]
-      **Dependencies:** Requires completion of #[issue numbers]
-      **Dependents:** Blocks progress on #[issue numbers]
-      **Deadline:** [date and reason]
-  validations:
-    required: true
+-   type: markdown
+    attributes:
+        value: |
+            ## Support & Quality Assurance
+            
+            Describe how you will support the assignee(s) and ensure work quality.
 
-- type: textarea
-  attributes:
-    label: "When: Predicted Time Frame"
-    description: Realistic time estimates with reasoning and milestones
-    placeholder: |
-      **Start date:** [earliest possible date]
-      **Duration estimate:** [X days/weeks for minimum scope]
-      **Key checkpoints:** [dates and deliverables]
-      **Buffer time:** [additional time for unknowns]
-  validations:
-    required: true
+-   id: assistance_plan
+    type: textarea
+    attributes:
+        label: How You Plan to Assist
+        description: |
+            Outline your support plan and quality assurance approach.
+            
+            Include:
+            - Review process and checkpoints
+            - Resources you'll provide
+            - Expertise you'll contribute
+            - Quality assurance measures
+        placeholder: |
+            - Weekly progress reviews and technical guidance
+            - Provide access to relevant documentation and systems
+            - Code review and testing support
+            - Subject matter expertise on [specific area]
+            - Final deliverable review and acceptance
+        render: markdown
+    validations:
+        required: true
 
-- type: textarea
-  attributes:
-    label: "What if: Consequences from delay"
-    description: Impact analysis if delayed and risk mitigation options
-    placeholder: |
-      **Immediate impact:** [effects within 1-2 weeks]
-      **Milestone impact:** [how this affects project timeline]
-      **Business consequences:** [cost, user experience, compliance]
-      **Risk mitigation:** [backup plans and alternatives]
-  validations:
-    required: true
+-   type: markdown
+    attributes:
+        value: |
+            ## Context & Dependencies
+            
+            Provide strategic context and identify task relationships.
 
-- type: checkboxes
-  attributes:
-    label: Related Categories
-    options:
+-   id: context_dependencies
+    type: textarea
+    attributes:
+        label: Priority, Importance, and Dependencies
+        description: |
+            Explain the strategic importance and constraints for this task.
+            
+            Address:
+            - Business/technical justification
+            - Impact on project goals
+            - Task dependencies and relationships
+            - External constraints or deadlines
+        placeholder: |
+            **Strategic Importance:**
+            - Critical for EMD milestone completion
+            - Enables downstream work on [specific areas]
+            
+            **Dependencies:**
+            - Requires completion of: #[issue numbers]
+            - Blocks progress on: #[issue numbers]
+            
+            **Constraints:**
+            - Hard deadline: [date] due to [reason]
+            - Resource limitations: [specify]
+        render: markdown
+    validations:
+        required: true
 
-      - label: "EMD"
+-   type: markdown
+    attributes:
+        value: |
+            ## Timeline & Planning
+            
+            Provide realistic time estimates and key milestones.
 
-      - label: "ESGF"
+-   id: timeline
+    type: textarea
+    attributes:
+        label: Predicted Time Frame
+        description: |
+            Provide realistic time estimates with clear reasoning.
+            
+            Include:
+            - Start date and duration estimates
+            - Key milestones and checkpoints
+            - Buffer time for unknowns
+            - Factors that could affect timeline
+        placeholder: |
+            **Timeline Estimate:**
+            - Earliest start: [date] (dependent on [prerequisite])
+            - Minimum scope: [X] days/weeks
+            - Ideal scope: [Y] days/weeks
+            - Key checkpoints: [dates and deliverables]
+            
+            **Risk Factors:**
+            - [Factor 1]: could add [time]
+            - [Factor 2]: might save [time]
+        render: markdown
+    validations:
+        required: true
 
-      - label: "citation"
+-   type: markdown
+    attributes:
+        value: |
+            ## Risk Assessment
+            
+            Analyze potential impacts and mitigation strategies.
 
-      - label: "esgvoc"
+-   id: delay_consequences
+    type: textarea
+    attributes:
+        label: Consequences of Delay
+        description: |
+            Analyze the impact if this task is delayed or not completed.
+            
+            Consider:
+            - Direct impact on dependent tasks
+            - Effect on milestone dates
+            - Business/technical consequences
+            - Risk mitigation options
+        placeholder: |
+            **Delay Impact:**
+            - Immediate effects: [within 1-2 weeks]
+            - Milestone impact: [effect on EMD timeline]
+            - Business consequences: [cost, compliance, user impact]
+            
+            **Risk Mitigation:**
+            - Alternative approach: [backup plan]
+            - Minimum viable solution: [reduced scope option]
+            - Resource reallocation: [options if needed]
+        render: markdown
+    validations:
+        required: true
 
-      - label: "forcings"
+-   type: markdown
+    attributes:
+        value: |
+            ## Assignment & Resources
 
-      - label: "framework-infrastructure"
+-   id: assignees
+    type: input
+    attributes:
+        label: Suggested Assignees
+        description: |
+            GitHub usernames of people who should work on this task (comma-separated).
+        placeholder: '@username1, @username2'
+    validations:
+        required: false
 
-      - label: "obs-ref"
-
-      - label: "other"
-
-      - label: "variable-registry"
-
-
-- type: input
-  attributes:
-    label: Assignees
-    description: GitHub usernames (comma-separated)
-    placeholder: "@username1, @username2"
-  validations:
-    required: false
+-   id: resources
+    type: textarea
+    attributes:
+        label: Additional Resources & Context
+        description: |
+            Provide links to relevant documentation, tools, or additional context.
+        placeholder: |
+            - Technical documentation: [links]
+            - Related repositories: [links] 
+            - Reference implementations: [links]
+            - Contact for questions: @username
+        render: markdown
+    validations:
+        required: false
