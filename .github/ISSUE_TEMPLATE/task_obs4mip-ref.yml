@@ -1,0 +1,108 @@
+name: 'CVsTT Task - Obs4MIP-REF'
+description: 'Create a Obs4MIP-REF task'
+title: 'Obs4MIP-REF: [Brief description]'
+labels: ['CVsTT', 'task', 'obs-ref']
+body:
+
+- type: input
+  attributes:
+    label: Task Title
+    description: Brief description of the task
+  validations:
+    required: true
+
+- type: dropdown
+  attributes:
+    label: Priority
+    options:
+      - Critical
+      - High
+      - Medium
+      - Low
+    default: 2
+  validations:
+    required: true
+
+- type: textarea
+  attributes:
+    label: "What is needed (minimum requirements)"
+    description: Define minimum deliverables required for completion
+    placeholder: |
+      - [ ] Specific deliverable 1
+      - [ ] Specific deliverable 2
+      - [ ] Quality criteria met
+  validations:
+    required: true
+
+- type: textarea
+  attributes:
+    label: "What is needed (ideal requirements)"
+    description: Define ideal scope if time and resources permit
+    placeholder: |
+      - [ ] Enhanced feature X
+      - [ ] Additional documentation
+      - [ ] Performance optimizations
+  validations:
+    required: false
+
+- type: textarea
+  attributes:
+    label: "How you plan to assist"
+    description: How will you support the assignee(s) and verify work quality
+    placeholder: |
+      - Weekly progress reviews
+      - Provide access to documentation and resources
+      - Code review and testing support
+      - Subject matter expertise on [specific area]
+  validations:
+    required: true
+
+- type: textarea
+  attributes:
+    label: "Where/Why: Priority, Importance, Dependencies"
+    description: Context, strategic importance, deadlines, and task relationships
+    placeholder: |
+      **Context:** Affects [specific systems/components]
+      **Business justification:** [why this matters]
+      **Dependencies:** Requires completion of #[issue numbers]
+      **Dependents:** Blocks progress on #[issue numbers]
+      **Deadline:** [date and reason]
+  validations:
+    required: true
+
+- type: textarea
+  attributes:
+    label: "When: Predicted Time Frame"
+    description: Realistic time estimates with reasoning and milestones
+    placeholder: |
+      **Start date:** [earliest possible date]
+      **Duration estimate:** [X days/weeks for minimum scope]
+      **Key checkpoints:** [dates and deliverables]
+      **Buffer time:** [additional time for unknowns]
+  validations:
+    required: true
+
+- type: textarea
+  attributes:
+    label: "What if: Consequences from delay"
+    description: Impact analysis if delayed and risk mitigation options
+    placeholder: |
+      **Immediate impact:** [effects within 1-2 weeks]
+      **Milestone impact:** [how this affects project timeline]
+      **Business consequences:** [cost, user experience, compliance]
+      **Risk mitigation:** [backup plans and alternatives]
+  validations:
+    required: true
+
+- type: checkboxes
+  attributes:
+    label: Related Categories
+    options:[{"label": "EMD"}, {"label": "ESGF"}, {"label": "citation"}, {"label": "esgvoc"}, {"label": "forcings"}, {"label": "framework-infrastructure"}, {"label": "obs-ref"}, {"label": "other"}, {"label": "variable-registry"}]
+
+- type: input
+  attributes:
+    label: Assignees
+    description: GitHub usernames (comma-separated)
+    placeholder: "@username1, @username2"
+  validations:
+    required: false

@@ -1,0 +1,92 @@
+name: 'CVsTT Discussion - Obs4MIP-REF'
+description: 'Start a Obs4MIP-REF discussion'
+title: 'Obs4MIP-REF Discussion: [Topic]'
+labels: ['CVsTT', 'discussion', 'obs-ref']
+body:
+
+- type: input
+  attributes:
+    label: Discussion Topic
+    description: What do you want to discuss about Obs4MIP-REF?
+  validations:
+    required: true
+
+- type: dropdown
+  attributes:
+    label: Urgency
+    options:
+      - Critical - Decision needed immediately
+      - High - Need resolution within days  
+      - Medium - Need resolution within weeks
+      - Low - Open-ended discussion
+    default: 2
+  validations:
+    required: true
+
+- type: textarea
+  attributes:
+    label: Background & Context
+    description: Provide context for this Obs4MIP-REF discussion
+    placeholder: |
+      **Current situation:** [what's happening now]
+      **Problem/need:** [what prompted this discussion]
+      **Why now:** [timing context]
+      **Relation to Obs4MIP-REF:** [how this affects the milestone]
+  validations:
+    required: true
+
+- type: textarea
+  attributes:
+    label: Key Questions
+    description: What specific questions should be addressed?
+    placeholder: |
+      1. Should we prioritize X over Y for Obs4MIP-REF?
+      2. What are the trade-offs between approaches A and B?
+      3. How does this impact Obs4MIP-REF timeline?
+      4. What resources are needed for each option?
+  validations:
+    required: true
+
+- type: textarea
+  attributes:
+    label: Proposed Options
+    description: If you have specific options to discuss, outline them
+    placeholder: |
+      **Option A:** [approach description]
+      - Pros: [advantages]
+      - Cons: [disadvantages]
+      - Impact on Obs4MIP-REF: [how this affects milestone]
+      
+      **Option B:** [alternative approach]
+      - Pros: [advantages]
+      - Cons: [disadvantages]
+      - Impact on Obs4MIP-REF: [how this affects milestone]
+  validations:
+    required: false
+
+- type: textarea
+  attributes:
+    label: Impact & Consequences
+    description: What's affected and what happens if no decision is made?
+    placeholder: |
+      **Affected areas:** [systems, people, timeline]
+      **Impact on Obs4MIP-REF:** [specific milestone effects]
+      **No decision consequences:** [what happens without action]
+      **Decision timeline:** [when we need to decide]
+  validations:
+    required: true
+
+- type: checkboxes
+  attributes:
+    label: Related Categories
+    options:[{"label": "EMD"}, {"label": "ESGF"}, {"label": "citation"}, {"label": "esgvoc"}, {"label": "forcings"}, {"label": "framework-infrastructure"}, {"label": "obs-ref"}, {"label": "other"}, {"label": "variable-registry"}]
+
+- type: textarea
+  attributes:
+    label: Stakeholders
+    description: Who should participate in this discussion?
+    placeholder: |
+      - @username - [role/expertise]
+      - [Team/group] - [why they should be involved]
+  validations:
+    required: false
