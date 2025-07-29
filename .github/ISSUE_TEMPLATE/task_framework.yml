@@ -5,7 +5,7 @@ projects: ["WCRP-CMIP/4"]  # CVsTT project board
 labels:
     - CVsTT
     - task
-    - Framework
+    - framework-infrastructure
 body:
 
 -   type: markdown
@@ -41,7 +41,7 @@ body:
         label: Description
         description: |
             Provide a detailed description of the task, including its primary aims, scope, and requirements.
-        placeholder: 'Describe the task purpose, scope, and relevant technical details...'
+        placeholder: 'Describe the task's purpose, scope, and relevant technical details...'
     validations:
         required: true
 
